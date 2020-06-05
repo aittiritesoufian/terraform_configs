@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
-  public_key = ""
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIERFBHCauRveovZ9qkeWV8iMGbuideFj/VqQD4mO0CoU9waWkTkYJKiQxEXz3fea2+MlMWCYi0H7FgyZjzPZvzXBz/yOmEnFoQ/oz4Q1EPw8yCB1za0Wh9pwavu2YIcnA3oQ0tlxswLADHrf8MO260LV3F0eU6j+V5VXr+0PW7jngPstRibqN4c0o+WvB+1cJ6rcqdrNEfhxcwz7Tq0vVdwYCFnyyEcczrqjmhjCJBeshblgC3dbkzu9Qp3dAEm5vHnzKOrOpiotsUR4IXzdY6EZoBJxHrefpvVzBztlTSCW+8Q0a8BwBy2JcWqBqtWWznjLlMM4aeaKgViRe3AQcCCgBEVnp9XflSijhMiFfQ6/ffuc5ZCNCyzt2jNHsB7ujCM5stNtAVVjlTMLSGSOTIlNL8AGaEOaq/No93DtKKJ668yIASiCPTNDUlp4iZ3aaFKkdd3GmGsGE2CkTl42wJ3DL837mUPgmMN9qyzNT7E2mi3HXXtkd2NWcD4t3i5cv2UamLMsP+1K8VjC8oWDavjBuIFnrmxDfpbTcYDHHUs48IwTaSwssZPOSpAYG7iNTP59R8mNTR6u4WIYW83gQTnouxnjXIuRhGKQrOjv5h6svgR12rVTNMD5LfEQFuZmwvm53u/snLogCddq/gsPZmZRt8hS4uNKM6MrPkU7nzQ== aittirite.soufian@gmail.com"
 }
 
 data "aws_ami" "ubuntu" {
@@ -35,4 +35,8 @@ data "aws_ami" "ubuntu" {
   }
 
   owners = ["099720109477"] # Canonical
+}
+
+output "instance_ip_addr" {
+  value = "${aws_instance.web.public_ip}"
 }
