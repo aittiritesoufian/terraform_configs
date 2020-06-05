@@ -20,4 +20,4 @@ If you need to apply a specific vars file, use this command:
 terraform apply -var-file "dev.tfvars" -auto-approve
 ```
 
-Example of *** X.tfvars *** file in autre.tfvars
+Example of **X.tfvars** file in autre.tfvars
