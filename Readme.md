@@ -1,4 +1,9 @@
 # TERRAFORM Configs
+To init instances:
+```
+terraform init
+```
+
 To be able to execute this code, you need to define this variables before apply the deployment instructions below:
 ```
 export AWS_ACCESS_KEY_ID="XXXX"
